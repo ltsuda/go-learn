@@ -27,3 +27,12 @@ func TestSumAll(t *testing.T) {
 		t.Errorf("expected %v but got %v", expected, sum)
 	}
 }
+
+func TestSumAllTails(t *testing.T) {
+	sum := SumAllTails([]int{1, 2}, []int{0, 9})
+	expected := []int{2, 9}
+
+	if !reflect.DeepEqual(sum, expected) {
+		t.Errorf("expected %v but got %v", expected, sum)
+	}
+}
