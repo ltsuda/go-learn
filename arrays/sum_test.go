@@ -1,6 +1,9 @@
 package arrays
 
-import "testing"
+import (
+	"reflect"
+	"testing"
+)
 
 func TestSum(t *testing.T) {
 
@@ -14,4 +17,13 @@ func TestSum(t *testing.T) {
 			t.Errorf("expected %d but got %d, %v", expected, sum, numbers)
 		}
 	})
+}
+
+func TestSumAll(t *testing.T) {
+	sum := SumAll([]int{1, 2}, []int{0, 9})
+	expected := []int{3, 9}
+
+	if !reflect.DeepEqual(sum, expected) {
+		t.Errorf("expected %v but got %v", expected, sum)
+	}
 }
