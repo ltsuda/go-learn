@@ -5,10 +5,6 @@ import (
 	"testing"
 )
 
-func Sum(x, y int) int {
-	return x + y
-}
-
 func ExampleSum() {
 	sum := Sum(1, 5)
 	fmt.Println(sum)
