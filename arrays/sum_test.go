@@ -37,7 +37,7 @@ func TestSumAllTails(t *testing.T) {
 		}
 	}
 
-	t.Run("make the sums o f some slices", func(t *testing.T) {
+	t.Run("make the sums of some slices", func(t *testing.T) {
 
 		sum := SumAllTails([]int{1, 2}, []int{0, 9})
 		expected := []int{2, 9}
