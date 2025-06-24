@@ -1,9 +1,11 @@
 package iteration
 
+import "strings"
+
 const repeatCount = 5
 
 func Repeat(character string, maxCount int) string {
-	var repeated string
+	var repeated strings.Builder
 	var maxRepeat int = repeatCount
 
 	if maxCount > 0 {
@@ -11,8 +13,8 @@ func Repeat(character string, maxCount int) string {
 	}
 
 	for i := 0; i < maxRepeat; i++ {
-		repeated += character
+		repeated.WriteString(character)
 	}
 
-	return repeated
+	return repeated.String()
 }
