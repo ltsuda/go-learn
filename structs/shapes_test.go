@@ -14,22 +14,21 @@ func TestPerimeter(t *testing.T) {
 
 func TestArea(t *testing.T) {
 
-	t.Run("rectangles", func(t *testing.T) {
-		rectangle := Rectangle{10.0, 12.0}
-		area := rectangle.Area()
-		expected := 120.0
-
-		if area != expected {
-			t.Errorf("expected %.2f, got %.2f", expected, area)
-		}
-	})
-	t.Run("circles", func(t *testing.T) {
-		circle := Circle{10.0}
-		area := circle.Area()
-		expected := 314.1592653589793
+	checkArea := func(t testing.TB, shape Shape, expected float64) {
+		t.Helper()
+		area := shape.Area()
 
 		if area != expected {
 			t.Errorf("expected %g, got %g", expected, area)
 		}
+	}
+
+	t.Run("rectangles", func(t *testing.T) {
+		rectangle := Rectangle{10.0, 12.0}
+		checkArea(t, rectangle, 120.0)
+	})
+	t.Run("circles", func(t *testing.T) {
+		circle := Circle{10.0}
+		checkArea(t, circle, 314.1592653589793)
 	})
 }
