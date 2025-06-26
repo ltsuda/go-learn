@@ -6,7 +6,7 @@ const repeatCount = 5
 
 func Repeat(character string, maxCount int) string {
 	var repeated strings.Builder
-	var maxRepeat int = repeatCount
+	var maxRepeat = repeatCount
 
 	if maxCount > 0 {
 		maxRepeat = maxCount
