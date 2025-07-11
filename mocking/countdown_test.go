@@ -44,6 +44,23 @@ Go!`
 			t.Errorf("expected calls %v, got %v", expected, spySleepPrinter.Calls)
 		}
 	})
+
+	t.Run("countDown with iterator", func(t *testing.T) {
+		buffer := &bytes.Buffer{}
+		spySleeper := &SpyCountdownOperations{}
+
+		CountdownWithIterator(buffer, spySleeper)
+
+		result := buffer.String()
+		expected := `3
+2
+1
+Go!`
+
+		if result != expected {
+			t.Errorf("expected %q, got %q", expected, result)
+		}
+	})
 }
 
 func TestConfigurableSleeper(t *testing.T) {
