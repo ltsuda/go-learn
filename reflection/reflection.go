@@ -3,11 +3,7 @@ package reflection
 import "reflect"
 
 func walk(x interface{}, fn func(input string)) {
-	value := reflect.ValueOf(x)
-
-	if value.Kind() == reflect.Pointer {
-		value = value.Elem()
-	}
+	value := getValue(x)
 
 	for i := 0; i < value.NumField(); i++ {
 		field := value.Field(i)
@@ -19,4 +15,13 @@ func walk(x interface{}, fn func(input string)) {
 			walk(field.Interface(), fn)
 		}
 	}
+}
+
+func getValue(x interface{}) reflect.Value {
+	value := reflect.ValueOf(x)
+
+	if value.Kind() == reflect.Pointer {
+		value = value.Elem()
+	}
+	return value
 }
