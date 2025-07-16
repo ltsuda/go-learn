@@ -9,8 +9,13 @@ func TestCounter(t *testing.T) {
 		counter.Inc()
 		counter.Inc()
 
-		if counter.Value() != 3 {
-			t.Errorf("expected %d, got %d", counter.Value(), 3)
-		}
+		assertCounter(t, counter, 3)
 	})
+}
+
+func assertCounter(t testing.TB, result Counter, expected int) {
+	t.Helper()
+	if result.Value() != expected {
+		t.Errorf("expected %d, got %d", result.Value(), 3)
+	}
 }
